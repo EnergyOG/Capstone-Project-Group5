@@ -1,3 +1,4 @@
+![Aws Free Tier Banner](./Aws%20Free%20Tier%20Banner.png)
 # AWS Free Tier Project – Intern Cohort
 
 ## Overview
