@@ -8,28 +8,61 @@ This project is a multi-phase cloud deployment exercise designed to take a web a
 
 # Phase 1: Project Setup & Environment Configuration
 
-## Challenge
-Set up all tools, accounts, and repositories for the project.
+This phase covers the initial setup of the AWS environment, development workflow, and project collaboration tools.
 
-## Activities
-- Create and configure an AWS Free Tier account
-- Set up IAM users with least-privilege permissions
-- Install and configure AWS CLI locally with named profiles
-- Create a GitHub repository with branching strategy:
-  - `main`
-  - `develop`
-  - `feature/*`
-- Set up a Trello board with columns:
+## AWS Account & IAM Configuration
+
+- Created an AWS Free Tier account.
+- Configured IAM users with least-privilege access control for security best practices.
+- Ensured separate permissions for admin and developer roles.
+
+## AWS CLI Setup
+
+- Installed AWS CLI on the local machine.
+- Configured named profiles for multiple environments using:
+
+```bash
+aws configure --profile dev
+```
+
+- Verified the setup using AWS CLI commands.
+
+## GitHub Repository Setup
+
+- Created a GitHub repository for version control.
+- Implemented the following branching strategy:
+  - **main** → Production-ready code
+  - **develop** → Integration branch
+  - **feature/\*** → Individual feature development
+
+## Project Management (Trello)
+
+- Created a Trello board to manage project tasks.
+- Defined workflow columns:
   - Backlog
   - In Progress
   - Review
   - Done
-- Add all team members to the Trello board
-- Launch an EC2 instance (t2.micro)
-- Configure security groups to allow HTTP/HTTPS traffic
-- Create an S3 bucket for static assets with appropriate public access settings
-- Request a free SSL/TLS certificate via AWS Certificate Manager (ACM)
-- Document the environment setup in `README.md` on GitHub
+- Added all team members to the board for collaboration.
+
+## AWS EC2 Setup
+
+- Launched an EC2 instance (**t2.micro**) under the AWS Free Tier.
+- Configured security groups to allow:
+  - HTTP (**Port 80**)
+  - HTTPS (**Port 443**)
+- Restricted unnecessary inbound traffic for improved security.
+
+## AWS S3 Setup
+
+- Created an S3 bucket for static assets.
+- Configured appropriate public access settings where required for asset hosting.
+- Enabled secure storage for images and frontend assets.
+
+## SSL/TLS Configuration
+
+- Requested a free SSL/TLS certificate using AWS Certificate Manager (ACM).
+- Prepared the certificate for securing HTTPS traffic on deployed services.
 
 ---
 
