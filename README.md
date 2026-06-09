@@ -18,9 +18,22 @@ This phase covers the initial setup of the AWS environment, development workflow
 
 ## AWS CLI Setup
 
-- Installed AWS CLI on the local machine.
-- Configured named profiles for multiple environments using:
+- Download the AWS CLI package.
+```bash
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+```
 
+- Install the AWS CLI package
+```bash
+sudo installer -pkg AWSCLIV2.pkg -target /
+```
+
+- Confirm installation
+```bash
+aws --version
+```
+
+- Configured named profiles for multiple environments using:
 ```bash
 aws configure --profile dev
 ```
