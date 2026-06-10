@@ -118,3 +118,5 @@
     revealObserver.observe(el);
   });
 })();
+
+const S3_BASE = "https://capstone-grp5-web-assets.s3.amazonaws.com/images/";
