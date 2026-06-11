@@ -4,4 +4,4 @@ dist
 *.local
 .env
 .env.*
-ec2-2-keypair.pem
+group5keyp.pem
