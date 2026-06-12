@@ -9,20 +9,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        host: [${{ secrets.EC2_HOST_1 }}, ${{ secrets.EC2_HOST_2 }}]
-
     steps:
-      - name: Deploy to EC2 instances
+      - name: Deploy to EC2 Instance 1
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ matrix.host }}
+          host: ${{ secrets.EC2_HOST_1 }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/Capstone-Project-Group5
             git pull origin main
+            sudo rsync -av --exclude='.git' --exclude='.github' ./ /var/www/html/
+            sudo systemctl restart httpd
 
-            sudo cp -r * /var/www/html/
+      - name: Deploy to EC2 Instance 2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST_2 }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/Capstone-Project-Group5
+            git pull origin main
+            sudo rsync -av --exclude='.git' --exclude='.github' ./ /var/www/html/
             sudo systemctl restart httpd
