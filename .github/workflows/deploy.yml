@@ -18,10 +18,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/Capstone-Project-Group5
-            cd ~/Capstone-Project-Group5
             git pull origin main
             sudo rm -rf /var/www/html/*
-            sudo cp index.html /var/www/html/
+            sudo cp -r index.html /var/www/html/
+            sudo chmod 755 /var/www/html
+            sudo find /var/www/html -type f -exec chmod 644 {} \;
+            sudo find /var/www/html -type d -exec chmod 755 {} \;
             sudo systemctl restart httpd
 
       - name: Deploy to EC2 Instance 2
@@ -34,5 +36,8 @@ jobs:
             cd ~/Capstone-Project-Group5
             git pull origin main
             sudo rm -rf /var/www/html/*
-            sudo cp index.html /var/www/html/
+            sudo cp -r index.html /var/www/html/
+            sudo chmod 755 /var/www/html
+            sudo find /var/www/html -type f -exec chmod 644 {} \;
+            sudo find /var/www/html -type d -exec chmod 755 {} \;
             sudo systemctl restart httpd
