@@ -19,7 +19,6 @@ jobs:
           script: |
             cd ~/Capstone-Project-Group5
             git pull origin main
-            sudo rsync -av --exclude='.git' --exclude='.github' ./ /var/www/html/
             sudo systemctl restart httpd
 
       - name: Deploy to EC2 Instance 2
@@ -31,5 +30,4 @@ jobs:
           script: |
             cd ~/Capstone-Project-Group5
             git pull origin main
-            sudo rsync -av --exclude='.git' --exclude='.github' ./ /var/www/html/
             sudo systemctl restart httpd
