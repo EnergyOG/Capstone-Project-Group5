@@ -35,7 +35,7 @@ jobs:
             cd ~/Capstone-Project-Group5
             git pull origin main
             sudo rm -rf /var/www/html/*
-            sudo cp index.html /var/www/html/
-            sudo cp main.js /var/www/html/
-            sudo cp styles.css /var/www/html/
+            sudo cp index.html /var/www/html/index.html
+            sudo cp main.js /var/www/html/main.js
+            sudo cp styles.css /var/www/html/styles.css
             sudo systemctl restart httpd
